@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Micro Tips</title>
+
+<!-- Stylesheet Files -->
+<link href="./css/main.css" rel="stylesheet" type="text/css" />
+<link href="./css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+
+<!-- JavaScript Files -->
+
+<script src="./js/jquery-1.3.2.min.js" type="text/javascript"></script>
+<script src="./js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/tipsy.js" type="text/javascript" charset="utf-8"></script>
+
+
+<!-- *************************************************************************
+*********************  THIS IS THE PRETTY PHOTO JS  **************************
+************************************************************************** -->
+
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("#main_wrapper a[rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'facebook',slideshow:5000, autoplay_slideshow: true});
+		});
+		</script>
+        
+        
+<!-- *************************************************************************
+*********************  THIS IS THE CONTACT FORM JS  **************************
+************************************************************************** -->
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	var active_color = '#929191'; // Colour of user provided text
+	var inactive_color = '#929191'; // Colour of default text
+        	  $("input.default-value").css("color", inactive_color);
+        	  var default_values = new Array();
+        	  $("input.default-value").focus(function() {
+        	    if (!default_values[this.id]) {
+        	      default_values[this.id] = this.value;
+        	    }
+        	    if (this.value == default_values[this.id]) {
+        	      this.value = '';
+        	      this.style.color = active_color;
+        	    }
+        	    $(this).blur(function() {
+        	      if (this.value == '') {
+        	        this.style.color = inactive_color;
+        	        this.value = default_values[this.id];
+        	      }
+        	    });
+        	  });
+	
+        	$('#contactform').submit(function(){
+        
+            formvalues = $("#contactform").serialize();
+        
+            $.ajax({
+                type: "POST",
+                url: "mailer.php",
+                data: formvalues,
+                dataType: "json",
+                success: function(data) {
+                    if (data.success==1) {
+                        $("#contactwrapper").slideUp(750,function() {
+                            $('#contactmessage').html('Thanks! Please check your email to confirm your subscription.');
+                            });
+                    }
+                    else{
+                        if (data.invalid_email==1) { $('#contact_email').addClass("form_error"); }
+                            else { $('#contact_email').removeClass("form_error"); }
+                            
+                   }
+            }
+            });
+        	    return false; 
+        	});
+        
+        });
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+
+<!-- *************************************************************************
+*************************  TIPSY SCRIPT LEAVE HERE!  *************************
+************************************************************************** -->
+
+      <script type='text/javascript'>
+  $(function() {
+    
+    $('#example-1').tipsy();
+    
+    $('#north').tipsy({gravity: 'n'});
+    $('#south').tipsy({gravity: 's'});
+    $('#east').tipsy({gravity: 'e'});
+    $('#west').tipsy({gravity: 'w'});
+    
+    $('#auto-gravity').tipsy({gravity: $.fn.tipsy.autoNS});
+    
+    $('.fade').tipsy({fade: true});
+    
+    $('#example-custom-attribute').tipsy({title: 'id'});
+    $('#example-callback').tipsy({title: function() { return this.getAttribute('original-title').toUpperCase(); } });
+    $('#example-fallback').tipsy({fallback: "?" });
+    
+    $('#example-html').tipsy({html: true });
+    
+  });
+</script>
+
+<div id="main_wrapper"><!-- Start of main_wrapper -->
+
+
+
+	<div id="top_logo"><!-- Start of top_logo -->
+  		<img src="./img/top_logo.png" width="155" height="46" alt="qloud landing page template" />
+  	</div><!-- End of top_logo -->
+    
+    
+    <div id="top_phone"><!-- Start of top_phone -->
+   Create images and videos by no camera
+    </div><!-- End of top_phone -->
+    
+    
+    
+<div class="left_container"><!-- Start of left_container -->
+    	<h1>Start Earn today!</h1>
+        
+  <div class="intro_text">
+     Selling stock images and videos can be a lucrative venture, offering a myriad of benefits. Firstly, it provides a passive income stream, allowing you to earn money while you focus on other projects or activities. As your portfolio grows, so does the potential for increased earnings.. 
+        </div>
+        
+		<div class="download_button"><!-- Start of download_button -->
+        	<a href="#" title="Buy Today With Confidence" class="fade"><img src="./img/download_button_large.png" width="237" height="54" alt="Download Now" /></a>
+            <p><a href="https://www.youtube.com/@microtips182/videos">Learn more about Micro Tips youtube channel</a></p>
+   	  	</div><!-- End of download_button -->
+      
+      <div class="benefits_wrapper"><!-- Start of benefits_wrapper -->
+      
+      	<span class="orange_title">The Benefits </span> <span class="gray_title">of Selling stock images and videos!</span>
+        
+        <div class="benefit_item_first"><!-- Start of benefits_item -->
+   	    	<img src="./img/monitor.png" width="65" height="65" alt="image1" />
+        	<h3>Please know that we will show you how to create images and video by No use Camera</h3>
+        	<p>The global reach of online stock platforms ensures that your work can be purchased by individuals, businesses, or media outlets worldwide, expanding your market significantly. Additionally, selling stock content allows you to showcase your creativity and build a reputation as a skilled photographer or videographer..</p>
+        </div><!-- End of benefits_item -->
+        
+        
+        <div class="benefit_item"><!-- Start of benefits_item -->
+   	    	<img src="./img/typography.png" width="65" height="65" alt="image2" />
+        	<h3>We will show you How you can create fast and Easy </h3>
+        	<p>Create and upload high-quality photos and videos to stock platforms like Shutterstock or Adobe Stock. Focus on popular and diverse subjects. Optimize metadata and tags for search visibility. Build a portfolio over time, increasing your chances of consistent sales. Stay updated on trends and customer preferences to enhance your market appeal..</p>
+        </div><!-- End of benefits_item -->
+        
+        
+        <div class="benefit_item"><!-- Start of benefits_item -->
+   	    	<img src="./img/plane.png" width="65" height="65" alt="image3" />
+        	<h3>Life time earning more create more earn</h3>
+        	<p>Maximize earnings with stock images and videos by diversifying your portfolio. Focus on high-demand topics, create visually appealing content, and optimize keywords for search. Stay updated on trends, contribute consistently, and consider exclusive partnerships with platforms. Engage with the community, seek feedback, and refine your skills to attract more buyers..</p>
+        </div><!-- End of benefits_item -->
+        
+        
+        <div class="benefit_item"><!-- Start of benefits_item -->
+    	  <img src="./img/chart.png" width="65" height="65" alt="image4" />
+        	<h3>Grow up your nearning in market</h3>
+        	<p>Selling stock images and videos can be lucrative, with earnings varying based on quality, subject matter, and market demand. Skilled creators can earn hundreds to thousands of dollars monthly. Success often hinges on consistently producing high-quality content, understanding market trends, and effectively promoting one's portfolio on popular stock platforms..</p>
+        </div><!-- End of benefits_item -->
+        
+        
+        <div class="download_button"><!-- Start of download_button -->
+        	<a href="#" title="Buy Today With Confidence" class="fade"><img src="./img/download_button_large.png" width="237" height="54" alt="Download Now" /></a>
+   	  	</div><!-- End of download_button -->
+        
+        
+      </div><!-- End of benefits_wrapper -->
+        
+    </div><!-- End of left_container -->
+    
+    
+    
+  <div class="right_container"><!-- Start of right_container -->
+    
+    <div id="video_top"><!-- Start of video_top -->
+        <iframe src="https://player.vimeo.com/video/890715656?badge=0&amp;autopause=0&amp;quality_selector=1&amp;player_id=0&amp;app_id=58479" width="480" height="270" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="My Earnning"></iframe>
+    </div><!-- End of video_top -->
+    
+    <div class="right_content"><!-- Start of right_content -->
+   	  <span class="gray_title">Buy Today And Receive</span> <span class="orange_title">Videos How to create images and videos for your businesses or your passivs income</span>
+    
+    
+    <div class="benefit_item_right"><!-- Start of benefits_item -->
+    	  <img src="./img/bonus_image.png" width="125" height="127" alt="image5" />
+        	<p>After you make a purchased you will get auto download all my videos by click (Buy Now) bottom .</p>
+			<p>Don't worry we will support you till you can create and upload to market Please<a href="#">Buy Now</a> to start earn tody.</p>
+    </div><!-- End of benefits_item -->
+    
+    <div class="download_button"><!-- Start of download_button -->
+        	<a href="#"><img src="./img/download_button_large.png" width="237" height="54" alt="Download Now" /></a>
+    </div><!-- End of download_button -->
+    <div class="download_button"><!-- Start of download_button -->
+            <a href="https://www.youtube.com/@microtips182/videos"><img src="./img/learn_more_button.png" width="197" height="54" alt="See the extra page!" /></a>
+   	</div><!-- End of download_button -->  	
+        
+        
+    </div><!-- End of right_content -->
+    
+    
+    </div><!-- End of right_container -->
+    
+    <div class="right_content2"><!-- Start of right_content -->
+    
+    <h3>NOTE: PLEASE VISITE YOUR SYSTEM REQUIREMENTS BEFOR BUY!</h3>
+    
+    <blockquote>Recommended Requirements
+Intel 7th Gen Core i5 Processors or higher
+16GB RAM or higher
+Graphics Card: NVIDIA GeForce GTX 16 Series / AMD Radeon RX 500 series
+Video Memory: 8GB RAM or higher
+SSD, 20 GB free hard disk space for installation
+SSD, 200 GB free hard disk space for DDS cache.</blockquote>
+    <pre>Recommended Requirements</pre>
+    
+    <blockquote>Minimum Requirements
+Intel 2nd Gen Core i5 Processors
+8GB RAM
+Graphics Card: NVIDIA GeForce GTX 900 Series / AMD Radeon R7 300 series
+Video Memory: 4GB RAM
+HDD, 20 GB free hard disk space for installation
+HDD, 200 GB free hard disk space for DDS cache.</blockquote>
+    <pre>Minimum Requirements</pre>
+        
+    </div><!-- End of right_content2 -->
+
+	<div class="hr"></div>
+    
+    
+    <div class="full_width"><!-- Start of full_width -->
+    
+    <span class="orange_title">Checkout</span> <span class="gray_title">The Lightbox!</span>
+    
+    <ul class="gallery">
+			<li><a href="./img/gallery_image_big.jpg" rel="prettyPhoto[gallery1]" title="Click to enlarge this image!" class="fade"><img src="./img/gallery_image.jpg" width="300" height="141" alt="Some great title" /></a></li>
+			<li><a href="./img/gallery_image_big.jpg" rel="prettyPhoto[gallery1]" title="This can be any text you want!" class="fade"><img src="./img/gallery_image.jpg" width="300" height="141" alt="Some great title" /></a></li>
+            <li><a href="./img/gallery_image_big.jpg" rel="prettyPhoto[gallery1]" title="Click to enlarge this image!" class="fade"><img src="./img/gallery_image.jpg" width="300" height="141" alt="Some great title" /></a></li>
+	</ul>
+    
+    </div><!-- Start of full_width -->
+    
+
+</div><!-- End of main_wrapper -->
+
+
+<!-- *************************************************************************
+******************************  FOOTER SECTION  ******************************
+************************************************************************** -->
+
+
+<!-- start of footer wrapper -->
+<div id="footer_wrapper">
+
+<!-- start of footer container -->
+<div id="footer_container">
+
+<!-- start of footer left -->
+<div id="footer_left">
+
+<h4>Join Our Mailing List</h4>
+
+	<!-- start of contact form success message wrapper -->
+        <div id="contactmessage">
+        </div><!-- end of contact form success message wrapper -->
+
+			<!-- start of contact form wrapper -->
+            <div id="contactwrapper">
+				<form action="./mailer.php.html" method="post" id="contactform" />
+					<input name="contact_email" id="contact_email" type="text" class="default-value input-textarea" value="" />
+					<input type="hidden" name="form_type" id="form_type" value="construction" />
+					<input name="Submit" id="submit" type="submit" value="" class="input-submit" />
+				</form>
+			</div><!-- end of contact form wrapper -->
+            
+</div><!-- end of footer left -->
+
+<!-- start of footer left -->
+<div id="footer_middle">
+	<img src="./img/bottom_logo.png" width="155" height="45" alt="logo" />
+    <br /><br />
+    &copy; Copyright 2023
+</div><!-- end of footer middle -->
+
+<!-- start of footer right -->
+<div id="footer_right">
+
+<h4>Connect With Us</h4>
+
+<ul class="social">
+       	<li><a href="#" title="facebook" class='fade'><img src="./img/social_facebook.png" width="30" height="30" alt="facebook" /></a></li>
+		
+		
+		
+    </ul>
+
+</div><!-- end of footer right -->
+
+</div><!-- end of footer container -->
+
+</div><!-- end of footer wrapper -->
+
+</body>
+</html>
